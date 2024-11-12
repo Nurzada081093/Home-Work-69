@@ -1,12 +1,16 @@
+import Layout from './Components/Layout/Layout.tsx';
 import './App.css';
 
 const App = () => {
 
   return (
     <>
-     I'm starting my home work #69! ^_^
+      <Layout>
+        I'm starting my home work #69! ^_^
+      </Layout>
     </>
   );
 };
 
 export default App;
+
