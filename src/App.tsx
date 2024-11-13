@@ -1,12 +1,18 @@
 import Layout from './Components/Layout/Layout.tsx';
 import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import AutoCompleteComponent from './Components/AutoCompleteComponent/AutoCompleteComponent.tsx';
 
 const App = () => {
 
   return (
     <>
       <Layout>
-        I'm starting my home work #69! ^_^
+        <Routes>
+          <Route path="/" element={<AutoCompleteComponent/>}></Route>
+          <Route path="show/id" element={<AutoCompleteComponent/>}></Route>
+          <Route path="*" element={<h1>Not found</h1>}/>
+        </Routes>
       </Layout>
     </>
   );
