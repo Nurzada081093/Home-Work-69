@@ -20,7 +20,6 @@ export interface IShowDetail {
   };
 }
 
-
 export interface InitialState {
   shows: IShow [];
   showValueFromUser: string;

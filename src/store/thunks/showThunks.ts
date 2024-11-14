@@ -19,15 +19,15 @@ export const getOneShowInfo = createAsyncThunk(
   async (id: number) => {
     const showResponse = await axios<IShowDetail>(`http://api.tvmaze.com/shows/${id}`);
     return {
-        name: showResponse.data.name,
-        summary: showResponse.data.summary,
-        genres: showResponse.data.genres[0],
-        language: showResponse.data.language,
-        premiered: showResponse.data.premiered,
-        ended: showResponse.data.ended,
-        runtime: showResponse.data.runtime,
-        image: showResponse.data.image,
-      };
+      name: showResponse.data.name,
+      summary: showResponse.data.summary,
+      genres: showResponse.data.genres[0],
+      language: showResponse.data.language,
+      premiered: showResponse.data.premiered,
+      ended: showResponse.data.ended,
+      runtime: showResponse.data.runtime,
+      image: showResponse.data.image,
+    };
   }
 );
 

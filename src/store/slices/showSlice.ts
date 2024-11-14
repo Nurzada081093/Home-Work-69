@@ -14,6 +14,7 @@ const initialState: InitialState = {
 export const selectShows = (state: RootState) => state.show.shows;
 export const showInform = (state: RootState) => state.show.showValueFromUser;
 export const showInformation = (state: RootState) => state.show.showDetailedInformation;
+export const loader = (state: RootState) => state.show.isLoading;
 
 const showSlice = createSlice({
   name: 'show',

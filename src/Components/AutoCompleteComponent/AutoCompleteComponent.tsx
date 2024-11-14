@@ -3,6 +3,7 @@ import 'primereact/resources/themes/lara-light-indigo/theme.css';
 import 'primereact/resources/primereact.min.css';
 import { useAppDispatch, useAppSelector } from '../../app/hooks.ts';
 import {
+  loader,
   selectShows,
   showInform, showInformation,
   userValue
@@ -10,12 +11,14 @@ import {
 import { fetchShows, getOneShowInfo } from '../../store/thunks/showThunks.ts';
 import { useLocation, useNavigate } from 'react-router-dom';
 import ReactHtmlParser from 'html-react-parser';
+import Loader from '../UI/Loader/Loader.tsx';
 
 const AutoCompleteComponent = () => {
   const userShow = useAppSelector(showInform);
   const tvShows = useAppSelector(selectShows);
   const navigate = useNavigate();
   const userShowDetail = useAppSelector(showInformation);
+  const preLoader = useAppSelector(loader);
   const dispatch = useAppDispatch();
   const location = useLocation();
 
@@ -29,12 +32,11 @@ const AutoCompleteComponent = () => {
     }
   };
 
-
   const getInfoAboutShow = async (e: { value: string }) => {
     const selectedShow = tvShows.find((show) => show.name === e.value);
 
     if (selectedShow !== undefined) {
-      await dispatch(getOneShowInfo(selectedShow.id)); // получаем подробности
+      await dispatch(getOneShowInfo(selectedShow.id));
       navigate(`/shows/${selectedShow.id}`);
     } else {
       navigate(`/`);
@@ -54,10 +56,10 @@ const AutoCompleteComponent = () => {
         />
       </div>
       <hr/>
-      {
+      { preLoader ? <Loader/> :
         location.pathname === '/' ? <div style={{fontSize: '20px', marginTop: '30px'}}>You haven't chosen a show yet. Choose your favorite show.</div> :
           userShowDetail ? (
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '30px', flexWrap: 'wrap'}}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '30px', flexWrap: 'wrap', marginBottom: '40px'}}>
               <div style={{marginRight: '20px'}}>
                 <img src={userShowDetail.image.medium} alt={userShowDetail.name}/>
               </div>
