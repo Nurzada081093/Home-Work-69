@@ -10,7 +10,7 @@ const App = () => {
       <Layout>
         <Routes>
           <Route path="/" element={<AutoCompleteComponent/>}></Route>
-          <Route path="show/id" element={<AutoCompleteComponent/>}></Route>
+          <Route path="/shows/:id" element={<AutoCompleteComponent/>}></Route>
           <Route path="*" element={<h1>Not found</h1>}/>
         </Routes>
       </Layout>
@@ -20,3 +20,4 @@ const App = () => {
 
 export default App;
 
+// то есть я должна была автокомплит сделать компонетом и все функции и параметры передать пропсами. Далее создать еще один компонент который выводит данные уже по определенный сериал и в этом же компоненте прописываю всю логику так же вызываю компонент  "автокомплит". Верно?

@@ -20,6 +20,7 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import ColorLensRoundedIcon from '@mui/icons-material/ColorLensRounded';
 import { useState } from 'react';
 import { Container } from '@mui/joy';
+import { NavLink } from 'react-router-dom';
 
 const ToolBar = () => {
   const [color, setColor] = useState<ColorPaletteProp>('primary');
@@ -69,7 +70,7 @@ const ToolBar = () => {
               variant="outlined"
               endDecorator={<KeyboardArrowDownIcon />}
             >
-              TV Shows
+              <NavLink to="/" style={{color: 'white', textDecoration: 'none'}}>TV Shows</NavLink>
             </MenuButton>
             <Menu
               variant="outlined"
@@ -87,10 +88,12 @@ const ToolBar = () => {
                 <ListItemDecorator>
                   <BubbleChartIcon />
                 </ListItemDecorator>
-                TV Shows
+                <NavLink to="/" style={{color: 'white', textDecoration: 'none'}}>TV Shows</NavLink>
               </MenuItem>
               <ListDivider />
-              <MenuItem>Shows</MenuItem>
+              <MenuItem>
+                <NavLink to="/" style={{color: 'white', textDecoration: 'none'}}>Shows</NavLink>
+              </MenuItem>
               <MenuItem>
                 Case studies{' '}
                 <Chip

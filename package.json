@@ -19,6 +19,7 @@
     "@mui/material": "^6.1.6",
     "@reduxjs/toolkit": "^2.3.0",
     "axios": "^1.7.7",
+    "html-react-parser": "^5.1.18",
     "prettier": "^3.3.3",
     "primeicons": "^7.0.0",
     "primereact": "^10.8.4",
